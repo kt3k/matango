@@ -77,6 +77,11 @@ This is to encourage embedding Matango inside quotes or parens in other language
   - if a key-value pair has more than one `=` symbol, then it should be a parse error.
   - If there is no `=` symbol in key-value pair, that's ok and the value is `null` in that case.
   - There is no way to include `=` symbol in key or value.
+- A key can be an empty string. (e.g. `=foo` parses to `[{"key": "", "value": "foo"}]`)
+- A value can be an empty string. (e.g. `foo=` parses to `[{"key": "foo", "value": ""}]`)
+- The same keys can appear in a single matango format. (e.g. `foo,foo,foo` is valid)
+- empty key-value pair is invalid
+  - For example `foo,,bar` is an invalid matango expression.
 
 # Parsers
 
@@ -92,7 +97,13 @@ const parseMatango = (matango) => {
     throw new Error(`invalid chars are found: ${match[0]}`)
   }
 
-  return matango.trim().split(/\s*,\s*/).map(kv => {
+  return matango.trim().split(',').map(kv => {
+    kv = kv.trim()
+
+    if (kv === '') {
+      throw new Error(`Invalid empty key-value pair`)
+    }
+
     const sepIndex = kv.indexOf('=')
 
     if (sepIndex === -1) {
