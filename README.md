@@ -73,8 +73,10 @@ This is to encourage embedding Matango inside quotes or parens in other language
 - Each key-value pair is separated by `,`.
 - `<whitespaces>` before and after each key and value are stripped.
   - So there is no way to express a key or value which starts or ends with whitespaces.
-- `=` symbol inside key or value is invalid.
+- There sould one or zero `=` symbol inside each key-value pair.
   - if a key-value pair has more than one `=` symbol, then it should be a parse error.
+  - If there is no `=` symbol in key-value pair, that's ok and the value is `null` in that case.
+  - There is no way to include `=` symbol in key or value.
 
 # Parsers
 
