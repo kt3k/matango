@@ -85,42 +85,7 @@ This is to encourage embedding Matango inside quotes or parens in other language
 
 # Parsers
 
-JavaScript:
-
-```js
-const INVALID_CHARS = /[\n\t()"']/
-
-const parseMatango = (matango) => {
-  const match = matango.match(FORBIDDEN_CHARS)
-
-  if (match) {
-    throw new Error(`invalid chars are found: ${match[0]}`)
-  }
-
-  return matango.trim().split(',').map(kv => {
-    kv = kv.trim()
-
-    if (kv === '') {
-      throw new Error(`Invalid empty key-value pair`)
-    }
-
-    const sepIndex = kv.indexOf('=')
-
-    if (sepIndex === -1) {
-      return { key: kv, value: null }
-    }
-
-    const key = kv.substr(0, sepIndex).trim()
-    const value = kv.substr(sepIndex + 1).trim()
-
-    if (value.indexOf('=') === -1) {
-      throw new Error('More than one "=" found in key-value pair.'
-    }
-
-    return { key, value }
-  })
-}
-```
+- JavaScript: [matango](https://npm.im/matango)
 
 # License
 

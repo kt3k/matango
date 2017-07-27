@@ -1,0 +1,34 @@
+{
+  "name": "matango",
+  "version": "0.1.0",
+  "description": "Minimalistic format for expressing key-value pairs.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "fix": "standard --fix",
+    "test": "kocha test",
+    "cov": "nyc --reporter=text-summary --reporter=lcov npm test",
+    "codecov": "npm run cov && codecov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kt3k/matango.git"
+  },
+  "keywords": [
+    "matango",
+    "format"
+  ],
+  "author": "Yoshiya Hinosawa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kt3k/matango/issues"
+  },
+  "homepage": "https://github.com/kt3k/matango#readme",
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "codecov": "^2.2.0",
+    "kocha": "^1.8.0",
+    "nyc": "^11.0.3",
+    "standard": "^10.0.2"
+  }
+}
