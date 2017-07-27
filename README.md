@@ -1,5 +1,8 @@
 # Matango
 
+[![CircleCI](https://circleci.com/gh/kt3k/matango.svg?style=svg)](https://circleci.com/gh/kt3k/matango)
+[![codecov](https://codecov.io/gh/kt3k/matango/branch/master/graph/badge.svg)](https://codecov.io/gh/kt3k/matango)
+
 > Minimalistic format for expressing key-value pairs.
 
 Matango is a simple format for expressing lists of key-value pairs. It is easy for humans to read and write. It is easy for machines to parse and generate.
