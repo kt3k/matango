@@ -3,13 +3,11 @@
 [![CircleCI](https://circleci.com/gh/kt3k/matango.svg?style=svg)](https://circleci.com/gh/kt3k/matango)
 [![codecov](https://codecov.io/gh/kt3k/matango/branch/master/graph/badge.svg)](https://codecov.io/gh/kt3k/matango)
 
-> Minimalistic format for expressing key-value pairs.
+> A fragment language, expressing key-value pairs, aims to be embedded in other languages.
 
-Matango is a simple format for expressing lists of key-value pairs. It is easy for humans to read and write. It is easy for machines to parse and generate.
+Matango is a simple format for expressing lists of key-value pairs. It is easy for humans to read and write. It is easy for machines to parse and serialize.
 
-Matango is text format similar to a line of [CSV][CSV], but has some more restrictions and extensions to it.
-
-Matango is not a general purpose data exchange format like [JSON][JSON] or [YAML][YAML]. Rather it aims to only express a list of simple key-value pairs and to be embedded in other languages like HTML, YAML, JSON or any other custom DSLs.
+Matango is not a general purpose data exchange format like [JSON][JSON] or [YAML][YAML]. Rather it aims to serve as a DSL which is embedded in another language or DSL, such as HTML, YAML, JSON etc.
 
 # Example
 
@@ -19,7 +17,7 @@ A typical matango line looks like the below.
 foo,bar,baz=quux,hello=Matango!
 ```
 
-This parses to something like (in JSON format):
+This parses to:
 
 ```json
 [
@@ -69,7 +67,7 @@ In BNF:
 ' (single quote)
 ```
 
-This is to encourage embedding Matango inside quotes or parens in other languages.
+This is to encourage the embedding of Matango into quotes or parens in other languages.
 
 # Notes (Semantics)
 
